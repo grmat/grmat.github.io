@@ -1,22 +1,28 @@
 <!doctype html>
 <html>
 <head>
+<meta charset="utf-8">
 <title>font test</title>
 <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Roboto|Source+Sans+Pro|Ubuntu" rel="stylesheet"> 
+
+<script language="javascript">
+window.onload = function() {
+  for (x of ["a", "b", "c", "d", "e"]) {
+    elemX = document.getElementById(x);
+    elemX.innerHTML += " (" + elemX.clientHeight + "px)";
+  }
+}
+</script>
+
 <style>
-html, body {
+body {
   margin: 0;
   padding: 0;
-  overflow: none;
-  width: 100vw;
-  height: 100vh;
   font-size: 18pt;
   background: black;
 }
-
 div {
   background: white;
-  border: 1px solid black;
   display: inline-block;
 }
 
