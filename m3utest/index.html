@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="UTF-8">
+  <script>
+  function addlink() {
+    var element = document.getElementById("link");
+    var url = document.getElementById("url").value;
+    var filename = "stream.m3u";
+    var le = document.getElementById("crlf").checked ? "\r\n" : "\n";
+    var content = "#EXTM3U" + le + url;
+    var mime = 'video/x-mpegurl';
+    // this prevents FF from remembering to "always open with..."
+    if (document.getElementById("workaround").checked) element.setAttribute('download', filename);
+    element.setAttribute('href', 'data:' + mime + ';charset=utf-8,' + encodeURIComponent(content));
+    element.innerHTML="please click me!";
+    document.body.appendChild(element);
+  }
+  </script>
+</head>
+<body>
+  <label>try workaround <input type="checkbox" id="workaround"></label></br>
+  <label>crlf <input type="checkbox" id="crlf"></label></br>
+  <label>url: <input type="text" id="url"></label></br>
+  <button onclick="addlink()">click me first</button></br>
+  <a id="link"></a>
+</body>
+</html>
